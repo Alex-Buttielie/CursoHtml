@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="projetoEmprestimo">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto Emprestimo</title>
+    <link rel="stylesheet" type="text/css" href="build/lib/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/telaAdicionarAmigo.css" />
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-messages.js"></script>
+    <script src="lib/angular/angular-locale_pt-br.js"></script>
+    <script src="view/angular-locale_fr-fr.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/projetoEmprestimoCtrl.js"></script>
+    <script src="js/services/amigosAPIService.js"></script>
+    <script src="js/value/configValue.js"></script>
+    <script src="js/funcoes.js"></script>
+
+</head>
+
+<body ng-controller="projetoEmprestimoCtrl as vm">
+    <div class="jumbotron">
+        <h3>{{app}}</h3>
+        <input class="form-control" type="text" ng-model="vm.criterioDeBusca" placeholder="O que você está buscando?" />
+        <div id="tableInformacoes">
+            <table ng-show="vm.amigos.length > 0" class="table table-striped">
+                <tr>
+                    <th></th>
+                    <th><a href="" ng-click="vm.ordenarPor('nome')">Nome do Amigo</a></th>
+                    <th>Telefone fixo</th>
+                    <th>Telefone Celular</th>
+                    <th>E-mail</th>
+                    <th>Apelido</th>
+                </tr>
+
+                <tr ng-repeat="amigo in vm.amigos track by $index">
+                    <td><input type="checkbox" ng-model="amigo.selecionado" /></td>
+                    <td>{{amigo.nome}}</td>
+                    <td>{{amigo.telefoneFixo}}</td>
+                    <td>{{amigo.telefoneCelular}}</td>
+                    <td>{{amigo.email}}</td>
+                    <td>{{amigo.apelido}}</td>
+                </tr>
+            </table>
+        </div>
+        <form name="amigoForm">
+            <input class="form-control" type="text" ng-model="amigo.nome" name="nome" placeholder="Nome"
+                ng-required="true">
+            <input class="form-control" type="text" ng-model="amigo.telefoneFixo" name="telefoneFixo"
+                placeholder="Telefone Fixo" ng-required="true">
+            <input class="form-control" type="text" ng-model="amigo.telefoneCelular" name="telefoneCelular"
+                placeholder="Telefone Celular" ng-required="true">
+            <input class="form-control" type="text" ng-model="amigo.email" name="email" placeholder="E-mail"
+                ng-required="true">
+            <input class="form-control" type="text" ng-model="amigo.apelido" name="apelido" placeholder="Apelido"
+                ng-required="true">
+
+        </form>
+        <div class="teste">
+            <button class="btn btn-primary" ng-click="vm.adicionarAmigos(amigo)">Adicionar Amigo</button>
+            <button class="btn btn-danger"  ng-click="vm.apagarAmigos(vm.amigos)">Apagar   Amigo</button>
+        </div>
+        <footer id="rodape">
+            <p>Copyright&copy;2020 - by Alex Buttielie <br>
+                <a href="https://www.facebook.com/alex.buttielle" target="_blank"> Facebook </a>|
+                <a href="https://twitter.com/Alekqss" target="_blank"> Twitter </a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

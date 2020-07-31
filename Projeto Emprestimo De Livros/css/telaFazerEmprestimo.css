@@ -1,0 +1,27 @@
+.jumbotron {
+    width:1300px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.teste{
+
+    margin-top: 10px;
+}
+div#teste{
+    margin-top: 10px;
+}
+footer#rodape {
+
+    font: normal 10pt Arial ;
+    text-align: center;
+    clear: both;
+
+}
+footer#rodape p{
+    margin-top: 10px;
+    font: normal 10pt Arial;
+    text-align: center;
+}

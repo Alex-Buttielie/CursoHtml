@@ -1,0 +1,74 @@
+var service = require ('./servidor');
+var express = ('express')
+var bodyParser = require('body-parser');
+var vm = this;
+var app = service(3000);
+
+
+
+var livros = [
+  {nome: "Oi", codigo: 14, categoria: "Celular", preco: 2},
+  {nome: "Vivo", codigo: 15, categoria: "Celular", preco: 1},
+  {nome: "Tim", codigo: 41, categoria: "Celular", preco: 3},
+  {nome: "GVT", codigo: 25, categoria: "Fixo", preco: 1},
+  {nome: "Embratel", codigo: 21, categoria: "Fixo", preco: 2}
+];
+
+var amigos = [
+  { nome: "Alex", telefone_Fixo: "3570-1113", Telefone_Celular: "996463268", email: "buttielle3@gmail.com",  apelido: "loirin"}
+];
+
+
+
+app.interceptor(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
+app.interceptor(function (req, res, next) {
+  res.setHeader('Content-Type', 'application/json;charset=UTF-8');
+  next();
+});
+
+app.get (bodyParser.urlencoded({extended: false}))
+app.get (bodyParser.json())
+
+
+app.get('/livros', function (req, res) {
+  res.write(JSON.stringify(vm.livros));
+  res.end();
+});
+
+app.get('/amigos', function (req, res) {
+  res.write(JSON.stringify(vm.amigos));
+  res.end();
+});
+
+app.post('/amigos', function (req, res) {
+  var amigo = req.body;
+  amigos.push(JSON.parse(amigo));
+  res.end();
+});
+
+app.get('/index',  function (req, res){
+  res.render('index')
+});
+
+app.post('/amigos', function (req, res){
+  res.send("Nome: " + req.vm.body.nome + "<br> Valor: " + vm.req+body.livro)
+});
+
+
+app.post('/file', function (req, res) {
+  console.log(req.body);
+  res.end();
+});
+
+app.options('/file', function (req, res) {
+  res.end();
+});
+
+app.options('/contatos', function (req, res) {
+  res.end();
+});

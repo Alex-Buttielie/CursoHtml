@@ -1,0 +1,35 @@
+body{
+
+    width:auto;
+    background-color: rgb(173, 12, 12);
+    font: normal 15pt Arial;
+}
+nav#menu{
+
+    width: auto;
+    font: normal 20pt Arial;
+    margin:200px;
+}
+.jumbotron {
+    width:900px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.teste{
+
+    margin-top: 10px;
+}
+
+footer#rodape {
+
+    font: normal 10pt Arial ;
+    text-align: center;
+    clear: both;
+
+}
+footer#rodape p{
+    font: normal 10pt Arial;
+    text-align: center;
+}
