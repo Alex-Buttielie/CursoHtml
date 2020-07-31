@@ -35,11 +35,11 @@ angular
             }
         };
 
-    function apagarLivros (amigo) {
-        vm.amigos = vm.amigos.filter(function (amigo) {
-            if (amigo.selecionado) {
-                livroApi.excluirAmigo(amigo).then(function (response){                      
-                    carregarAmigos();
+    function apagarLivros (livro) {
+        vm.livros = vm.livros.filter(function (livro) {
+            if (livro.selecionado) {
+                livroApi.excluirLivro(livro).then(function (response){                      
+                    carregarLivros();
                 });
             }
         });
